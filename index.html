@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="javascript.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="icon" href="calculate_FILL0_wght400_GRAD0_opsz48.svg">
+<script>
+  $(document).ready(function(){
+    $("#citButton").click(function(){
+      $(".citDiv").toggle(1000);
+    });
+    $("#infoButton").click(function(){
+      $(".infoDiv").toggle(1000);
+    });
+  });
+</script>
+
+<title>OSNIR CALCULATOR</title>
+
+</head>
+<body>
+
+  <div class="container pt-5">
+    <h1 class="text-center"><img src="calculate_FILL0_wght400_GRAD0_opsz48.svg"> OSNIR Calculator <img src="calculate_FILL0_wght400_GRAD0_opsz48.svg"></h1>
+    <p id="descTxt" class="text-center">Powered by <a href="http://openlightcomm.com/" target="_blank">OpenLightComm</a></p>
+    
+    <hr>
+    <div class="row pt-5">
+        <div class="col text-left">
+          <p class="ttlTxt" style="font-size: 30px;">Values</p>
+            <hr id="resHr">
+            <p>NchE:  <input type="number" id="NchE" name="NchE" value=""></p> 
+            <p>NchS1: <input type="number" id="NchS1" name="NchS1" value=""></p>
+            <p>NchS2: <input type="number" id="NchS2" name="NchS2" value=""></p>
+            <p>NchC:  <input type="number" id="NchC" name="NchC" value=""></p>
+            <p>NchL:  <input type="number" id="NchL" name="NchL" value=""></p>
+            <p>PchE [dBm]:  <input type="number" id="PchE" name="PchE" value=""></p>
+            <p>PchS1 [dBm]: <input type="number" id="PchS1" name="PchS1" value=""></p>
+            <p>PchS2 [dBm]: <input type="number" id="PchS2" name="PchS2" value=""></p>
+            <p>PchC [dBm]:  <input type="number" id="PchC" name="PchC" value=""></p>
+            <p>PchL [dBm]:  <input type="number" id="PchL" name="PchL" value=""></p>
+            <p>Length [km]: <input type="number" id="Length" name="Length" value=""></p>
+            <p>Ns: <input type="number" id="ns" name="ns" value=""></p>
+        </div>
+        <div class="col">
+            <p class="ttlTxt" style="font-size: 30px;">Results</p>
+            <hr id="resHr">
+            <p>OSNIR-E: <input class="resultsInput" type="textbox" id="result1" name="result1" value=""></p>
+            <p>OSNIR-S1:  <input class="resultsInput" type="textbox" id="result2" name="result2" value=""></p>
+            <p>OSNIR-S2:  <input class="resultsInput" type="textbox" id="result3" name="result3" value=""></p>
+            <p>OSNIR-C: <input class="resultsInput" type="textbox" id="result4" name="result4" value=""></p>
+            <p>OSNIR-L: <input class="resultsInput" type="textbox" id="result5" name="result5" value=""></p>
+              <div class="row">
+                <button type="button" class="btn" onclick="myFunction()">Calculate</button>
+              </div>
+        </div> 
+    </div>
+      <hr>
+      <div class="row">
+        <p id="citButton" onclick="citFunction()">CLICK HERE TO SEE REFERENCES</p>
+        <div class="col"><p  id="infoButton" onclick="infoFunction()" style="float: right;">CLICK HERE TO SEE INSTRUCTIONS</p></div>
+      </div>
+      <div class="row">
+        <div class="infoDiv">
+          <p>In order to use our tool properly please insert the number of channels for each band with the following manual:</p>
+          <p>Total number of channels for each band: E - 101, S1 - 108, S2 - 104, C - 143, L - 163</p>
+          <p>The fields "NchE, NchS1, NchS2, NchC, NchL" should be filled with the desired number of channels you want to simulate</p>
+          <p>Then the fields "PchE, PchS1, PchS2, PchC, PchL" should be filled with the desired power per channel for each band</p>
+          <p>Finally, you chose the number of Spans in the field "Ns" and the length of each span in the field "L".</p>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="citDiv">
+          <p>1) Uzunidis, D., Matrakidis, C., & Stavdas, A. (2019). Closed-form FWM expressions accounting for the impact of modulation format. Optics Communications, 440, 132-138.</p>
+          <hr>
+          <p>2) Uzunidis, D., Kosmatos, E., Matrakidis, C., Stavdas, A., & Lord, A. (2021). Strategies for upgrading an operator's backbone network beyond the C-band: Towards multi-band optical networks. IEEE Photonics Journal, 13(2), 1-18.</p>
+          <hr>
+          <p>3) Uzunidis, D., Matrakidis, C., Kosmatos, E., Stavdas, A., Petropoulos, P., & Lord, A. (2021, September). Connectivity Challenges in E, S, C and L Optical Multi-Band Systems. In 2021 European Conference on Optical Communication (ECOC) (pp. 1-4). IEEE.</p>
+          <hr>
+          <p>4) Nikolaou, K. F., Uzunidis, D., Stavdas, A., & Pagiatakis, G. (2021, November). Quantifying the Impact of Physical Layer Effects in an Optical Multi-Band System. In 2021 29th Telecommunications Forum (TELFOR) (pp. 1-4). IEEE.</p>
+          <hr>
+          <p>5) Uzunidis, D., Nikolaou, K., Matrakidis, C., Stavdas, A., & Lord, A. Closed-form Expressions for the Impact of Stimulated Raman Scattering Beyond 15 THz.</p>
+        </div>
+      </div>
+  </div>
+  <br>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
